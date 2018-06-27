@@ -1,8 +1,6 @@
 from rest_framework import serializers
 from rest_framework.validators import UniqueTogetherValidator
-
-from .models import UserFav
-from .models import UserLeavingMessage, UserAddress
+from .models import UserLeavingMessage, UserAddress, UserFav
 from goods.serializers import GoodsSerializer
 
 
@@ -48,6 +46,13 @@ class AddressSerializer(serializers.ModelSerializer):
         default=serializers.CurrentUserDefault()
     )
     add_time = serializers.DateTimeField(read_only=True, format='%Y-%m-%d %H:%M')
+    # signer_mobile = serializers.CharField(max_length=11, min_length=11, required=True, label="手机号",
+    #                                       error_messages={
+    #                                           "required": "请输入手机号",
+    #                                           "max_length": "手机号格式错误",
+    #                                           "min_length": "手机号格式错误",
+    #                                           "blank": "请输入手机号"
+    #                                       }, help_text="手机号")
 
     class Meta:
         model = UserAddress

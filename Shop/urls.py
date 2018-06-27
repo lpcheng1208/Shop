@@ -24,7 +24,7 @@ from rest_framework.documentation import include_docs_urls
 from users.views import SmsCodeViewSet, UserViewSet
 from goods.views import GoodsListViewSet, CategoryViewSet, ImageListViewSet, BannersListViewSet, \
     HotSearchWordsListViewSet
-from user_operation.views import UserFavViewSet
+from user_operation.views import UserFavViewSet, LeavingMessageViewSet, AddressViewSet
 from rest_framework.routers import DefaultRouter
 
 router = DefaultRouter()
@@ -36,6 +36,8 @@ router.register(r'banners', BannersListViewSet, base_name='banners')
 router.register(r'hotsearchs', HotSearchWordsListViewSet, base_name='hotsearchs')
 router.register(r'users', UserViewSet, base_name='users')
 router.register(r'userfavs', UserFavViewSet, base_name='userfavs')
+router.register(r'messages', LeavingMessageViewSet, base_name='messages')
+router.register(r'address', AddressViewSet, base_name='address')
 
 urlpatterns = [
     url(r'^xadmin/', xadmin.site.urls),
