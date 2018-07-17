@@ -50,5 +50,5 @@ class HotSearchWordsListViewSet(mixins.ListModelMixin, mixins.RetrieveModelMixin
 
 
 class VideoListViewSet(viewsets.ModelViewSet):
-    queryset = Video.objects.all().order_by("-id")
+    queryset = Video.objects.all().order_by("id")
     serializer_class = VideoSerializer
