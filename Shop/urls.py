@@ -23,9 +23,10 @@ from django.views.static import serve
 from rest_framework.documentation import include_docs_urls
 from users.views import SmsCodeViewSet, UserViewSet
 from goods.views import GoodsListViewSet, CategoryViewSet, ImageListViewSet, BannersListViewSet, \
-    HotSearchWordsListViewSet
+    HotSearchWordsListViewSet, VideoListViewSet
 from user_operation.views import UserFavViewSet, LeavingMessageViewSet, AddressViewSet
 from rest_framework.routers import DefaultRouter
+from trade.views import ShopCartViewSet, OrderViewSet
 
 router = DefaultRouter()
 # 配置goods的url
@@ -38,6 +39,9 @@ router.register(r'users', UserViewSet, base_name='users')
 router.register(r'userfavs', UserFavViewSet, base_name='userfavs')
 router.register(r'messages', LeavingMessageViewSet, base_name='messages')
 router.register(r'address', AddressViewSet, base_name='address')
+router.register(r'shopcarts', ShopCartViewSet, base_name='shopcarts')
+router.register(r'orders', OrderViewSet, base_name='orders')
+router.register(r'videos', VideoListViewSet, base_name='videos')
 
 urlpatterns = [
     url(r'^xadmin/', xadmin.site.urls),

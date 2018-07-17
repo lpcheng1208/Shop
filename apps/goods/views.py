@@ -1,6 +1,6 @@
-from .models import Goods, GoodsImage, GoodsCategory, Banner, HotSearchWords
+from .models import Goods, GoodsImage, GoodsCategory, Banner, HotSearchWords, Video
 from .serializers import GoodsSerializer, GoodsImageSerializer, CategorySerializer, \
-    BannersSerializer, HotSearchWordsSerializer
+    BannersSerializer, HotSearchWordsSerializer, VideoSerializer
 from rest_framework.pagination import PageNumberPagination
 from rest_framework import viewsets, mixins
 from django_filters.rest_framework import DjangoFilterBackend
@@ -47,3 +47,8 @@ class BannersListViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
 class HotSearchWordsListViewSet(mixins.ListModelMixin, mixins.RetrieveModelMixin, viewsets.GenericViewSet):
     queryset = HotSearchWords.objects.all()
     serializer_class = HotSearchWordsSerializer
+
+
+class VideoListViewSet(viewsets.ModelViewSet):
+    queryset = Video.objects.all().order_by("-id")
+    serializer_class = VideoSerializer
