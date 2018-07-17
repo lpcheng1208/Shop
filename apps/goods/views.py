@@ -9,7 +9,7 @@ from rest_framework import filters
 
 
 class GoodsPagination(PageNumberPagination):
-    page_size = 12
+    page_size = 20
     page_size_query_param = 'page_size'
     page_query_param = 'page'
     max_page_size = 100
@@ -52,3 +52,4 @@ class HotSearchWordsListViewSet(mixins.ListModelMixin, mixins.RetrieveModelMixin
 class VideoListViewSet(viewsets.ModelViewSet):
     queryset = Video.objects.all().order_by("id")
     serializer_class = VideoSerializer
+    pagination_class = GoodsPagination
