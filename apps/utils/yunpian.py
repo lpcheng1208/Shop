@@ -67,8 +67,8 @@ def sign(access_secret, prepare_str):
 def _send_sms_ali(mobiles, tpl_code, tpl_params):
     prefix_url = "https://dysmsapi.aliyuncs.com/?"
 
-    accesskeyid = "LTAIJKHUHzu3FpJd"
-    accesssecret = "EcekoFSNYejeEqm3dmRSrnhxl40XXr"
+    accesskeyid = ""
+    accesssecret = ""
     sign_name = "许许生鲜"
 
     params_lst = params(accesskeyid, mobiles, tpl_code, tpl_params, sign_name)
